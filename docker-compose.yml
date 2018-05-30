@@ -1,5 +1,7 @@
 version: '3'
 services:
+  db:
+    image: postgres:9.5
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -7,5 +9,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/devise_with_vue
+    depends_on:
+      - db
     stdin_open: true
     tty: true
