@@ -1,5 +1,14 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      get 'books/index'
+      post 'books/create'
+      get 'books/show'
+      delete 'books/destroy'
+    end
+  end
 end

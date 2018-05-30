@@ -40,7 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.4', '>= 4.4.3'
 # JSON API(jsonapi.org) serializer that works with rails and can be used to serialize any kind of ruby objects
-gem 'fast_jsonapi', '~> 1.2'
+gem 'fast_jsonapi', git: "https://github.com/Netflix/fast_jsonapi", branch: "dev"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
