@@ -1,7 +1,7 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="books"
+    :items="bookList"
     hide-actions
     class="elevation-1"
   >
@@ -27,29 +27,10 @@
           { text: 'Título', value: 'title', sortable: false },
           { text: 'Data', value: 'date', sortable: false },
           { text: 'Autor', value: 'author', sortable: false },
-        ],
-        books: [
-          {
-            code: '123',
-            title: 'Sitio do Picapal amarelo',
-            date: new Date(),
-            author: 1,
-          },
-          {
-            code: '1111',
-            title: 'Santa monica',
-            date: new Date(),
-            author: 1,
-          },
-          {
-            code: '222',
-            title: 'O conde de monte cristo',
-            date: new Date(),
-            author: 1,
-          }
         ]
       }
-    }
+    },
+    props: ['bookList']
   }
 </script>
 <style lang="scss" scoped>

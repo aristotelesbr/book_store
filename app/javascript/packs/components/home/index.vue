@@ -1,17 +1,23 @@
 <template>
   <div>
-    <BookList />
+    <BookList :bookList="bookList"/>
   </div>
 </template>
 <script>
+import { mapState, mapActions } from 'vuex';
 import BookList from './_book_list'
 export default {
-  name: "",
-  data: () => ({
-  }),
+  name: "BookIndex",
+  data() {
+    return {
+    }
+  },
   components: {
     BookList
-  }
+  },
+  computed: mapState({
+    bookList: state => state.BookModule.bookList
+  })
 }
 </script>
 <style lang="scss" scoped>
