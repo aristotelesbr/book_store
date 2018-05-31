@@ -8,4 +8,5 @@ Rails.application.routes.draw do
       resources :books
     end
   end
+  match '*path', to: 'home#index', via: :get
 end

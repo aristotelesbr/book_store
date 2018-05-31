@@ -1,6 +1,8 @@
 <template>
   <v-toolbar color="blue">
-    <v-toolbar-side-icon class="white--text"></v-toolbar-side-icon>
+    <router-link to="/">
+      <v-toolbar-side-icon class="white--text"></v-toolbar-side-icon>
+    </router-link>
     <v-toolbar-title class="white--text">Livraria</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
