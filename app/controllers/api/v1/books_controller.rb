@@ -7,7 +7,7 @@ module Api
       before_action :set_book, only: [:show]
       def index
         @books = Book.all
-        render :json
+        render json: @books
       end
 
       def show; end

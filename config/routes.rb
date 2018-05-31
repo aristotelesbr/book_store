@@ -5,10 +5,7 @@ Rails.application.routes.draw do
   root 'home#index'
   namespace :api do
     namespace :v1 do
-      get 'books/index'
-      post 'books/create'
-      get 'books/show'
-      delete 'books/destroy'
+      resources :books
     end
   end
 end
