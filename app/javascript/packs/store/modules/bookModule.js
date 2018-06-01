@@ -9,19 +9,18 @@ const BookModule = {
   mutations: {
     setBookList(state, books) {
       state.bookList = books.data;
-      console.log(books.data);
+      console.log(books);
     }
   },
   // Metodos chamam as multations
   actions: {
     fetchBooks(context) {
       Services.BookServices.fetchBooks()
-        .then(response => response.data)
         .then(books => {
-          context.commit('setBookList', books)
-        }).catch(function (error) {
-          console.log(error)
-        })
+          context.commit('setBookList', books.data )
+        }).catch((e)  => {
+        console.log(e)
+      })
     }
   }
 };

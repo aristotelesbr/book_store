@@ -1,17 +1,23 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="bookList"
-    hide-actions
-    class="elevation-1"
-  >
-    <template slot="items" slot-scope="props">
-      <td>{{ props.item.id }}</td>
-      <td>{{ props.item.attributes.title }}</td>
-      <td>{{ props.item.attributes.created }}</td>
-      <td>{{ props.item.attributes.author }}</td>
-    </template>
-  </v-data-table>
+  <v-container>
+    <v-layout row wrap>
+      <v-flex d-flex xs12 sm12 md12>
+        <v-data-table
+        :headers="headers"
+        :items="bookList"
+        hide-actions
+        class="elevation-1"
+        >
+        <template slot="items" slot-scope="props">
+          <td>{{ props.item.id }}</td>
+          <td>{{ props.item.attributes.title }}</td>
+          <td>{{ props.item.attributes.created }}</td>
+          <td>{{ props.item.attributes.author }}</td>
+        </template>
+        </v-data-table>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 <script>
   export default {
