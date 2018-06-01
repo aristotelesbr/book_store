@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 import BookList from './_book_list'
 export default {
   name: "BookIndex",
