@@ -1,31 +1,28 @@
+import Services from '../../services';
 const BookModule = {
   namespaced: true,
   // Somente leitura para os componentes
   state: {
-    bookList: [{
-      code: '123',
-      title: 'Sitio do Picapal amarelo',
-      date: new Date(),
-      author: 1,
-    },
-    {
-      code: '1111',
-      title: 'Santa monica',
-      date: new Date(),
-      author: 1,
-    },
-    {
-      code: '222',
-      title: 'O conde de monte cristo',
-      date: new Date(),
-      author: 1,
-    }]
+    bookList: []
   },
   // Altera o state
-  multations: {
+  mutations: {
+    setBookList(state, books) {
+      state.bookList = books.data;
+      console.log(books.data);
+    }
   },
   // Metodos chamam as multations
   actions: {
+    fetchBooks(context) {
+      Services.BookServices.fetchBooks()
+        .then(response => response.data)
+        .then(books => {
+          context.commit('setBookList', books)
+        }).catch(function (error) {
+          console.log(error)
+        })
+    }
   }
 };
 

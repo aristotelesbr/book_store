@@ -17,7 +17,11 @@ export default {
   },
   computed: mapState({
     bookList: state => state.BookModule.bookList
-  })
+  }),
+  mounted() {
+    // chama a action
+    this.$store.dispatch('BookModule/fetchBooks');
+  }
 }
 </script>
 <style lang="scss" scoped>

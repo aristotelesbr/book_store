@@ -6,10 +6,10 @@
     class="elevation-1"
   >
     <template slot="items" slot-scope="props">
-      <td>{{ props.item.code }}</td>
-      <td>{{ props.item.title }}</td>
-      <td>{{ props.item.date }}</td>
-      <td>{{ props.item.author }}</td>
+      <td>{{ props.item.id }}</td>
+      <td>{{ props.item.attributes.title }}</td>
+      <td>{{ props.item.attributes.created }}</td>
+      <td>{{ props.item.attributes.author }}</td>
     </template>
   </v-data-table>
 </template>
@@ -25,7 +25,7 @@
             value: 'code'
           },
           { text: 'Título', value: 'title', sortable: false },
-          { text: 'Data', value: 'date', sortable: false },
+          { text: 'Data', value: 'created', sortable: false },
           { text: 'Autor', value: 'author', sortable: false },
         ]
       }
