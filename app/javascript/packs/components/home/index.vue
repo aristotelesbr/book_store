@@ -19,7 +19,6 @@ export default {
     bookList: state => state.BookModule.bookList
   }),
   mounted() {
-    // chama a action
     this.$store.dispatch('BookModule/fetchBooks');
   }
 }

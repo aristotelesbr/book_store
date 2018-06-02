@@ -5,7 +5,7 @@ module Api
     # BooksController
     class BooksController < ApplicationController
       skip_before_action :verify_authenticity_token
-      before_action :set_book, only: [:show]
+      before_action :set_book, only: [:show, :destroy]
       def index
         @books = Book.all
         render json: @books
@@ -22,7 +22,10 @@ module Api
         end
       end
 
-      def destroy; end
+      def destroy
+        @book.destroy
+        head :no_content
+      end
 
       private
 

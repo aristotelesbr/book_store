@@ -13,6 +13,14 @@
           <td>{{ props.item.attributes.title }}</td>
           <td>{{ props.item.attributes.created }}</td>
           <td>{{ props.item.attributes.author }}</td>
+          <td class="justify-center px-0">
+            <v-btn icon class="mx-0">
+              <BookDetail :book="props.item"/>
+            </v-btn>
+            <v-btn icon class="mx-0" @click="deleteItem(props.item)">
+              <v-icon color="pink">delete</v-icon>
+            </v-btn>
+          </td>
         </template>
         </v-data-table>
       </v-flex>
@@ -20,6 +28,8 @@
   </v-container>
 </template>
 <script>
+import BookDetail from './_book_detail'
+
   export default {
     data () {
       return {
@@ -33,8 +43,18 @@
           { text: 'Título', value: 'title', sortable: false },
           { text: 'Data', value: 'created', sortable: false },
           { text: 'Autor', value: 'author', sortable: false },
+          { text: 'Ações', value: 'code', sortable: false }
         ]
       }
+    },
+    methods: {
+      deleteItem(item) {
+        this.$store.dispatch('BookModule/deleteBook', item.id);
+        this.$store.dispatch('BookModule/fetchBooks');
+      }
+    },
+    components: {
+      BookDetail
     },
     props: ['bookList']
   }
