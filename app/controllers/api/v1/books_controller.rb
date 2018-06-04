@@ -7,7 +7,7 @@ module Api
       skip_before_action :verify_authenticity_token
       before_action :set_book, only: %i[show destroy]
       def index
-        books = Book.all.page(page_number).per(per_page)
+        books = Book.order(created_at: 'DESC').page(page_number).per(per_page)
         render json: books
       end
 

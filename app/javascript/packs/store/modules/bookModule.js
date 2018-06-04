@@ -4,7 +4,8 @@ const BookModule = {
   // State é somente leitura
   state: {
     bookList: [],
-    paginateLinks: {}
+    paginateLinks: {},
+    flashNotice: []
   },
   mutations: {
     setBookList(state, books) {
@@ -18,6 +19,9 @@ const BookModule = {
     },
     setPrevPage(state, payload){
       state.bookList = payload.data;
+    },
+    setFlashNotice(state, payload){
+      state.flashNotice = payload.data;
     }
   },
   actions: {
@@ -28,6 +32,17 @@ const BookModule = {
           context.commit('setPaginateLinks', books.data)
         }).catch((e)  => {
         console.log(e)
+      })
+    },
+    newBook({dispatch, commit}, paylod) {
+      Services.BookServices.newBook(paylod)
+      .then(resp => {
+        if (resp.status === 200) {
+          commit('setFlashNotice', resp.data)
+          dispatch('fetchBooks')
+        }
+      }).catch((e) => {
+        console.log(e);
       })
     },
     deleteBook(context, payload) {

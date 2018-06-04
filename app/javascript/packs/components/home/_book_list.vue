@@ -1,29 +1,25 @@
 <template>
-  <v-container>
-    <v-flex xs12 md12>
-      <v-data-table
-        :headers="headers"
-        :items="bookList"
-        hide-actions
-        class="elevation-1"
-        >
-        <template slot="items" slot-scope="props">
-          <td>{{ props.item.id }}</td>
-          <td>{{ props.item.attributes.title }}</td>
-          <td>{{ props.item.attributes.created }}</td>
-          <td>{{ props.item.attributes.author }}</td>
-          <td class="justify-center px-0">
-            <v-btn icon class="mx-0">
-              <BookDetail :book="props.item"/>
-            </v-btn>
-            <v-btn icon class="mx-0" @click="deleteItem(props.item)">
-              <v-icon color="pink">delete</v-icon>
-            </v-btn>
-          </td>
-        </template>
-        </v-data-table>
-    </v-flex>
-  </v-container>
+  <v-data-table
+    :headers="headers"
+    :items="bookList"
+    hide-actions
+    class="elevation-1"
+    >
+    <template slot="items" slot-scope="props">
+      <td>{{ props.item.id }}</td>
+      <td>{{ props.item.attributes.title }}</td>
+      <td>{{ props.item.attributes.created }}</td>
+      <td>{{ props.item.attributes.author }}</td>
+      <td class="justify-center px-0">
+        <v-btn icon class="mx-0">
+          <BookDetail :book="props.item"/>
+        </v-btn>
+        <v-btn icon class="mx-0" @click="deleteItem(props.item)">
+          <v-icon color="pink">delete</v-icon>
+        </v-btn>
+      </td>
+    </template>
+    </v-data-table>
 </template>
 <script>
 import BookDetail from './_book_detail'

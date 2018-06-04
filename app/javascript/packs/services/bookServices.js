@@ -9,5 +9,10 @@ export default {
   },
   paginate(url) {
     return Http.get(url)
+  },
+  newBook(params) {
+    return Http.post('/books/', {
+      book: params
+    })
   }
 }
