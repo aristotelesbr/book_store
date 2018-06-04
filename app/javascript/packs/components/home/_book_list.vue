@@ -1,8 +1,7 @@
 <template>
   <v-container>
-    <v-layout row wrap>
-      <v-flex d-flex xs12 sm12 md12>
-        <v-data-table
+    <v-flex xs12 md12>
+      <v-data-table
         :headers="headers"
         :items="bookList"
         hide-actions
@@ -23,8 +22,7 @@
           </td>
         </template>
         </v-data-table>
-      </v-flex>
-    </v-layout>
+    </v-flex>
   </v-container>
 </template>
 <script>

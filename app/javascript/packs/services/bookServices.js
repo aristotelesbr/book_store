@@ -6,5 +6,8 @@ export default {
   },
   deleteBook(id) {
     return Http.delete(`/books/${id}`)
+  },
+  paginate(url) {
+    return Http.get(url)
   }
 }

@@ -43,6 +43,8 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'active_model_serializers', '~> 0.10.7'
 # Use webpack to manage app-like JavaScript modules in Rails
 gem 'webpacker', '~> 3.5', '>= 3.5.3'
+# Kaminari is a Scope & Engine based, clean, powerful, agnostic, customizable and sophisticated paginator for Rails 4+
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
